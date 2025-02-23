@@ -1,9 +1,13 @@
 import { describe, test, expect } from "vitest";
-import { getCurrentYear, add, isWithinRange, isDateBefore, isSameDay } 
-from "../dateUtils";
+import {
+  getCurrentYear,
+  add,
+  isWithinRange,
+  isDateBefore,
+  isSameDay,
+} from "../dateUtils";
 
 describe("Date Utils", () => {
-  
   test("getCurrentYear should return the correct year", () => {
     const year = getCurrentYear();
     expect(year).toBe(new Date().getFullYear());
@@ -44,6 +48,4 @@ describe("Date Utils", () => {
   test("isSameDay should return false if the dates are different", () => {
     expect(isSameDay("2024-06-10", "2024-06-11")).toBe(false);
   });
-
 });
-
