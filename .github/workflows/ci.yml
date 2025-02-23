@@ -78,7 +78,7 @@ jobs:
           git commit -m "chore: build artifacts" || echo "No changes to commit"
 
       - name: Increment version
-        run: npm version patch -m "chore: bump version [skip ci]"
+        run: npm version patch -m 'chore: bump version [skip ci]'
 
       - name: Push changes
         run: git push --follow-tags
