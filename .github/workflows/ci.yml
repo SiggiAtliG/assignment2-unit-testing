@@ -47,12 +47,15 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -66,13 +69,19 @@ jobs:
       - name: Build package
         run: npm run build
 
-      - name: Configure Git
+      - name: Clean working directory
         run: |
+          git status
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+          git add .
+          git commit -m "chore: build artifacts" || echo "No changes to commit"
 
       - name: Increment version
-        run: npm version patch
+        run: npm version patch -m "chore: bump version [skip ci]"
+
+      - name: Push changes
+        run: git push --follow-tags
 
       - name: Publish to GitHub Packages
         run: npm publish
