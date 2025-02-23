@@ -35,7 +35,7 @@ overrides: [
     },
     parserOptions: {
         ecmaVersion: 2020,
-        sourceType: "script"
+        sourceType: "module"
     },
     rules: {
         "no-undef": "off"  // Since these are Node.js files using CommonJS

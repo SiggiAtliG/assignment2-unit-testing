@@ -1,1 +1,4 @@
-node_modulescoverage/
+node_modules/
+coverage/
+dist/
+.DS_Store
