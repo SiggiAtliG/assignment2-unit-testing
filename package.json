@@ -1,5 +1,5 @@
 {
-  "name": "assignment-2-testing",
+"name": "@siggiatlig/assignment-2-testing",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -17,7 +17,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/username/assignment-2-testing.git"
+    "url": "git+https://github.com/SiggiAtliG/assignment2-unit-testing.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
